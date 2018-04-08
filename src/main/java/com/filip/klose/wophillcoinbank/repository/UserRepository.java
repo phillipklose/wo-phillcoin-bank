@@ -8,5 +8,5 @@ import com.filip.klose.wophillcoinbank.entity.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
 
-    Optional<User> findByLoginOrEmail(String login, String email);
+    Optional<User> findByLoginOrEmailAndPassword(String login, String email, String password);
 }
