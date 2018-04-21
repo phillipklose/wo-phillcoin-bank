@@ -63,7 +63,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User[id=%s, login='%s', password='%s', firstName='%s', lastName='%s', email='%s']", id.toString(), login, password,
-                firstName, lastName, email);
+        return String.format("User[id=%s, login='%s', password='%s', firstName='%s', lastName='%s', email='%s']", id.toString(), login,
+                password, firstName, lastName, email);
     }
 }
