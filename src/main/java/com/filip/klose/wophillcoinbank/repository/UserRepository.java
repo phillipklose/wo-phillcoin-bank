@@ -7,6 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.filip.klose.wophillcoinbank.entity.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
-
-    Optional<User> findByLoginOrEmailAndPassword(String login, String email, String password);
+    Optional<User> findByLoginAndPasswordOrEmailAndPassword(String login, String password, String email, String password2);
 }

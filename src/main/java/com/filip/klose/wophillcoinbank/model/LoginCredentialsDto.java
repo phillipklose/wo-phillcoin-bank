@@ -1,6 +1,6 @@
 package com.filip.klose.wophillcoinbank.model;
 
-public class LoginCredentials {
+public class LoginCredentialsDto {
     private String login;
     private String password;
 
