@@ -4,6 +4,14 @@ public class LoginCredentialsDto {
     private String login;
     private String password;
 
+    public LoginCredentialsDto() {
+    }
+
+    public LoginCredentialsDto(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public String getLogin() {
         return login;
     }

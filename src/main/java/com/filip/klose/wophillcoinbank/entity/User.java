@@ -61,9 +61,9 @@ public class User {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return String.format("User[id=%s, login='%s', password='%s', firstName='%s', lastName='%s', email='%s']", id.toString(), login,
-                password, firstName, lastName, email);
-    }
+//    @Override
+//    public String toString() {
+//        return String.format("User[id=%s, login='%s', password='%s', firstName='%s', lastName='%s', email='%s']", id.toString(), login,
+//                password, firstName, lastName, email);
+//    }
 }

@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 import java.nio.charset.Charset;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.filip.klose.wophillcoinbank.WoPhillcoinBankApplication;
 import com.filip.klose.wophillcoinbank.builder.UserBuilder;
 import com.filip.klose.wophillcoinbank.entity.User;
+import com.filip.klose.wophillcoinbank.model.LoginCredentialsDto;
 import com.filip.klose.wophillcoinbank.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
@@ -34,7 +36,7 @@ public class LoginControllerTest {
 
     private MockMvc mockMvc;
 
-    private User userThatWantToRegister, userThatWantToRegisterWithLoginAndPassword;
+    private User userThatWantToRegister, userThatWantToRegisterWithLoginAndPassword, userOnWhatITryLogIn;
 
     @Autowired
     private ObjectMapper mapper;
@@ -54,6 +56,11 @@ public class LoginControllerTest {
 
         userThatWantToRegisterWithLoginAndPassword = new UserBuilder().setLogin("testLoginForUserWithoutAllElements")
                 .setPassword("testPasswordForUserWithoutAllElements").build();
+
+        userOnWhatITryLogIn = new UserBuilder().setLogin("UserOnWhatITryLogIn").setPassword("password").setFirstName("testFirstName")
+                .setLastName("testLastName").setEmail("testEmail").build();
+
+        userRepository.insert(userOnWhatITryLogIn);
     }
 
     @Test
@@ -81,13 +88,57 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void login() {
+    public void testLoginOnUserOnWhatITryLogInWithValidLoginAndPasswordCredentials() throws Exception {
+        LoginCredentialsDto credentialsDto = new LoginCredentialsDto("UserOnWhatITryLogIn", "password");
+        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+                .contentType(contentType))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("id").isNotEmpty())
+                .andExpect(jsonPath("login").value("UserOnWhatITryLogIn"))
+                .andExpect(jsonPath("firstName").value("testFirstName"))
+                .andExpect(jsonPath("lastName").value("testLastName"))
+                .andExpect(jsonPath("email").value("testEmail"));
     }
 
-    // TODO: delete users after test pass
-//    @After
-//    public void tearDown() {
-//        userRepository.delete(userThatWantToRegister);
-//        userRepository.delete(userThatWantToRegisterWithLoginAndPassword);
-//    }
+    @Test
+    public void testLoginOnUserOnWhatITryLogInWithValidEmailAndPasswordCredentials() throws Exception {
+        LoginCredentialsDto credentialsDto = new LoginCredentialsDto("testEmail", "password");
+        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+                .contentType(contentType))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("id").isNotEmpty())
+                .andExpect(jsonPath("login").value("UserOnWhatITryLogIn"))
+                .andExpect(jsonPath("firstName").value("testFirstName"))
+                .andExpect(jsonPath("lastName").value("testLastName"))
+                .andExpect(jsonPath("email").value("testEmail"));
+    }
+
+    @Test
+    public void testLoginOnUserOnWhatITryLogInWithNotValidLoginAndValidPassword() throws Exception {
+        LoginCredentialsDto credentialsDto = new LoginCredentialsDto("testLoginThatIsNotValid", "password");
+        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+                .contentType(contentType))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    public void testLoginOnUserOnWhatITryLogInWithNotValidEmailAndValidPassword() throws Exception {
+        LoginCredentialsDto credentialsDto = new LoginCredentialsDto("testEmailThatIsNotValid", "password");
+        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+                .contentType(contentType))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    public void testLoginOnUserOnWhatITryLogInWithNotValidPassword() throws Exception {
+        LoginCredentialsDto credentialsDto = new LoginCredentialsDto("userOnWhatITryLogIn", "notValidPassword");
+        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+                .contentType(contentType))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @After
+    public void tearDown() {
+        userRepository.deleteAll();
+    }
 }
