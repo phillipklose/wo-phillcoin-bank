@@ -1,6 +1,7 @@
 package com.filip.klose.wophillcoinbank.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -40,7 +41,10 @@ public class ConfigurationControllerTest {
     public void setGlobalInterestValueReturnsOk() throws Exception {
         String interestValueToBeSet = String.valueOf(10);
         mockMvc.perform(put("/configuration/interest/").param("value", interestValueToBeSet))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("id").isNotEmpty())
+                .andExpect(jsonPath("type").value("INTEREST"))
+                .andExpect(jsonPath("value").value(interestValueToBeSet));
     }
 
     @After
