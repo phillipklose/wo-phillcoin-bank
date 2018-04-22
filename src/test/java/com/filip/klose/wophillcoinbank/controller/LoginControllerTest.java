@@ -1,6 +1,6 @@
 package com.filip.klose.wophillcoinbank.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -65,7 +65,7 @@ public class LoginControllerTest {
 
     @Test
     public void testRegisterUserWithAllFieldsSet() throws Exception {
-        mockMvc.perform(post("/login/register/").content(mapper.writeValueAsString(userThatWantToRegister))
+        mockMvc.perform(put("/login/register/").content(mapper.writeValueAsString(userThatWantToRegister))
                 .contentType(contentType))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").isNotEmpty())
@@ -77,7 +77,7 @@ public class LoginControllerTest {
 
     @Test
     public void testRegisterUserWithLoginAndPasswordFieldsSet() throws Exception {
-        mockMvc.perform(post("/login/register/").content(mapper.writeValueAsString(userThatWantToRegisterWithLoginAndPassword))
+        mockMvc.perform(put("/login/register/").content(mapper.writeValueAsString(userThatWantToRegisterWithLoginAndPassword))
                 .contentType(contentType))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").isNotEmpty())
@@ -90,7 +90,7 @@ public class LoginControllerTest {
     @Test
     public void testLoginOnUserOnWhatITryLogInWithValidLoginAndPasswordCredentials() throws Exception {
         LoginCredentialsDto credentialsDto = new LoginCredentialsDto("UserOnWhatITryLogIn", "password");
-        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+        mockMvc.perform(put("/login/").content(mapper.writeValueAsString(credentialsDto))
                 .contentType(contentType))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").isNotEmpty())
@@ -103,7 +103,7 @@ public class LoginControllerTest {
     @Test
     public void testLoginOnUserOnWhatITryLogInWithValidEmailAndPasswordCredentials() throws Exception {
         LoginCredentialsDto credentialsDto = new LoginCredentialsDto("testEmail", "password");
-        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+        mockMvc.perform(put("/login/").content(mapper.writeValueAsString(credentialsDto))
                 .contentType(contentType))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").isNotEmpty())
@@ -116,7 +116,7 @@ public class LoginControllerTest {
     @Test
     public void testLoginOnUserOnWhatITryLogInWithNotValidLoginAndValidPassword() throws Exception {
         LoginCredentialsDto credentialsDto = new LoginCredentialsDto("testLoginThatIsNotValid", "password");
-        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+        mockMvc.perform(put("/login/").content(mapper.writeValueAsString(credentialsDto))
                 .contentType(contentType))
                 .andExpect(status().isUnauthorized());
     }
@@ -124,7 +124,7 @@ public class LoginControllerTest {
     @Test
     public void testLoginOnUserOnWhatITryLogInWithNotValidEmailAndValidPassword() throws Exception {
         LoginCredentialsDto credentialsDto = new LoginCredentialsDto("testEmailThatIsNotValid", "password");
-        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+        mockMvc.perform(put("/login/").content(mapper.writeValueAsString(credentialsDto))
                 .contentType(contentType))
                 .andExpect(status().isUnauthorized());
     }
@@ -132,7 +132,7 @@ public class LoginControllerTest {
     @Test
     public void testLoginOnUserOnWhatITryLogInWithNotValidPassword() throws Exception {
         LoginCredentialsDto credentialsDto = new LoginCredentialsDto("userOnWhatITryLogIn", "notValidPassword");
-        mockMvc.perform(post("/login/").content(mapper.writeValueAsString(credentialsDto))
+        mockMvc.perform(put("/login/").content(mapper.writeValueAsString(credentialsDto))
                 .contentType(contentType))
                 .andExpect(status().isUnauthorized());
     }

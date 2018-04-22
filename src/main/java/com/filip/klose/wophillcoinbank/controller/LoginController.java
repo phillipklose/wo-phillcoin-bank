@@ -22,14 +22,14 @@ public class LoginController {
     @Autowired
     private UserMapper mapper;
 
-    @PostMapping("/register")
+    @PutMapping("/register")
     @ResponseBody
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         final User savedUser = userService.saveUser(user);
         return ResponseEntity.ok(mapper.convertToDto(savedUser));
     }
 
-    @PostMapping
+    @PutMapping
     @ResponseBody
     public ResponseEntity<?> login(@RequestBody LoginCredentialsDto credentials) {
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
