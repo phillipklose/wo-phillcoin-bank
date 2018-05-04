@@ -21,6 +21,10 @@ public class UserService {
                 .getLogin(), credentials.getPassword());
     }
 
+    public Optional<User> getUserByUserId(String userId) {
+        return userRepository.findById(userId);
+    }
+
     public User saveUser(User user) {
         return userRepository.save(user);
     }

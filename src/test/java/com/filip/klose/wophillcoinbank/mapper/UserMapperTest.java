@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 
 import com.filip.klose.wophillcoinbank.builder.UserBuilder;
 import com.filip.klose.wophillcoinbank.entity.User;
+import com.filip.klose.wophillcoinbank.model.SaldoDto;
 import com.filip.klose.wophillcoinbank.model.UserDto;
 
 public class UserMapperTest {
@@ -25,5 +26,15 @@ public class UserMapperTest {
         assertEquals(convertedUserEntityToDto.getLastName(), userEntity.getLastName());
         assertEquals(convertedUserEntityToDto.getEmail(), userEntity.getEmail());
         assertEquals(convertedUserEntityToDto.getSaldo(), userEntity.getSaldo());
+    }
+
+    @Test
+    public void testIfConvertedEntityToSaldoDtoWorksProperly() {
+        User userEntity = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
+                .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
+
+        SaldoDto convertedUserEntityToSaldoDto = modelMapper.map(userEntity, SaldoDto.class);
+
+        assertEquals(convertedUserEntityToSaldoDto.getSaldo(), userEntity.getSaldo());
     }
 }

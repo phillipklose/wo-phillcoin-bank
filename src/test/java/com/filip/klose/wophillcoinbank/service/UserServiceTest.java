@@ -1,6 +1,7 @@
 package com.filip.klose.wophillcoinbank.service;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 
@@ -48,13 +49,15 @@ public class UserServiceTest {
                 .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
         testUser.setId(new ObjectId());
 
-        Mockito.when(userRepository.findByLoginAndPasswordOrEmailAndPassword("testLogin", "password",
+        when(userRepository.findByLoginAndPasswordOrEmailAndPassword("testLogin", "password",
                 "testLogin", "password")).thenReturn(Optional.of(testUser));
 
-        Mockito.when(userRepository.findByLoginAndPasswordOrEmailAndPassword("testEmail", "password",
+        when(userRepository.findByLoginAndPasswordOrEmailAndPassword("testEmail", "password",
                 "testEmail", "password")).thenReturn(Optional.of(testUser));
 
-        Mockito.when(userRepository.save(testUserWithoutId)).thenReturn(testUser);
+        when(userRepository.findById(testUser.getId().toString())).thenReturn(Optional.of(testUser));
+
+        when(userRepository.save(testUserWithoutId)).thenReturn(testUser);
     }
 
     @Test
@@ -114,6 +117,29 @@ public class UserServiceTest {
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
 
         assertFalse(userByLoginCredentials.isPresent());
+    }
+
+    @Test
+    public void getUserByUserIdWhenUserExistsItShouldReturnIt() {
+        final Optional<User> userByUserId = userService.getUserByUserId(testUser.getId().toString());
+
+        assertTrue(userByUserId.isPresent());
+
+        final User user = userByUserId.get();
+        assertNotNull(user.getId());
+        assertEquals(user.getLogin(), testUser.getLogin());
+        assertEquals(user.getPassword(), testUser.getPassword());
+        assertEquals(user.getFirstName(), testUser.getFirstName());
+        assertEquals(user.getLastName(), testUser.getLastName());
+        assertEquals(user.getEmail(), testUser.getEmail());
+        assertEquals(user.getSaldo(), testUser.getSaldo());
+    }
+
+    @Test
+    public void getUserByUserIdWhenUserDoesNotExistsItShouldReturnEmpty() {
+        final Optional<User> userByUserId = userService.getUserByUserId("NotExistingId");
+
+        assertFalse(userByUserId.isPresent());
     }
 
     @Test
