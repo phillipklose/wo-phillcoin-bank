@@ -52,13 +52,13 @@ public class LoginControllerTest {
         mockMvc = webAppContextSetup(webApplicationContext).build();
 
         userThatWantToRegister = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
-                .setLastName("testLastName").setEmail("testEmail").build();
+                .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
 
         userThatWantToRegisterWithLoginAndPassword = new UserBuilder().setLogin("testLoginForUserWithoutAllElements")
                 .setPassword("testPasswordForUserWithoutAllElements").build();
 
         userOnWhatITryLogIn = new UserBuilder().setLogin("UserOnWhatITryLogIn").setPassword("password").setFirstName("testFirstName")
-                .setLastName("testLastName").setEmail("testEmail").build();
+                .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
 
         userRepository.insert(userOnWhatITryLogIn);
     }
@@ -72,7 +72,8 @@ public class LoginControllerTest {
                 .andExpect(jsonPath("login").value("testLogin"))
                 .andExpect(jsonPath("firstName").value("testFirstName"))
                 .andExpect(jsonPath("lastName").value("testLastName"))
-                .andExpect(jsonPath("email").value("testEmail"));
+                .andExpect(jsonPath("email").value("testEmail"))
+                .andExpect(jsonPath("saldo").value(0));
     }
 
     @Test
@@ -84,7 +85,8 @@ public class LoginControllerTest {
                 .andExpect(jsonPath("login").value("testLoginForUserWithoutAllElements"))
                 .andExpect(jsonPath("firstName").isEmpty())
                 .andExpect(jsonPath("lastName").isEmpty())
-                .andExpect(jsonPath("email").isEmpty());
+                .andExpect(jsonPath("email").isEmpty())
+                .andExpect(jsonPath("saldo").value(0));
     }
 
     @Test
@@ -97,7 +99,8 @@ public class LoginControllerTest {
                 .andExpect(jsonPath("login").value("UserOnWhatITryLogIn"))
                 .andExpect(jsonPath("firstName").value("testFirstName"))
                 .andExpect(jsonPath("lastName").value("testLastName"))
-                .andExpect(jsonPath("email").value("testEmail"));
+                .andExpect(jsonPath("email").value("testEmail"))
+                .andExpect(jsonPath("saldo").value(0));
     }
 
     @Test
@@ -110,7 +113,8 @@ public class LoginControllerTest {
                 .andExpect(jsonPath("login").value("UserOnWhatITryLogIn"))
                 .andExpect(jsonPath("firstName").value("testFirstName"))
                 .andExpect(jsonPath("lastName").value("testLastName"))
-                .andExpect(jsonPath("email").value("testEmail"));
+                .andExpect(jsonPath("email").value("testEmail"))
+                .andExpect(jsonPath("saldo").value(0));
     }
 
     @Test

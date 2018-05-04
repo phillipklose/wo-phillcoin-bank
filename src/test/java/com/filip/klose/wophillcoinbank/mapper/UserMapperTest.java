@@ -16,7 +16,7 @@ public class UserMapperTest {
     @Test
     public void testIfConvertedEntityToDtoWorksProperly() {
         User userEntity = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
-                .setLastName("testLastName").setEmail("testEmail").build();
+                .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
 
         UserDto convertedUserEntityToDto = modelMapper.map(userEntity, UserDto.class);
 
@@ -24,5 +24,6 @@ public class UserMapperTest {
         assertEquals(convertedUserEntityToDto.getFirstName(), userEntity.getFirstName());
         assertEquals(convertedUserEntityToDto.getLastName(), userEntity.getLastName());
         assertEquals(convertedUserEntityToDto.getEmail(), userEntity.getEmail());
+        assertEquals(convertedUserEntityToDto.getSaldo(), userEntity.getSaldo());
     }
 }

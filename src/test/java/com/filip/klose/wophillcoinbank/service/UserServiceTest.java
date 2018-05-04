@@ -43,9 +43,9 @@ public class UserServiceTest {
     @Before
     public void setup() {
         testUserWithoutId = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
-                .setLastName("testLastName").setEmail("testEmail").build();
+                .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
         testUser = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
-                .setLastName("testLastName").setEmail("testEmail").build();
+                .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
         testUser.setId(new ObjectId());
 
         Mockito.when(userRepository.findByLoginAndPasswordOrEmailAndPassword("testLogin", "password",
@@ -70,6 +70,7 @@ public class UserServiceTest {
         assertEquals(userByLoginCredentials.get().getFirstName(), testUser.getFirstName());
         assertEquals(userByLoginCredentials.get().getLastName(), testUser.getLastName());
         assertEquals(userByLoginCredentials.get().getEmail(), testUser.getEmail());
+        assertEquals(userByLoginCredentials.get().getSaldo(), testUser.getSaldo());
     }
 
     @Test
@@ -85,6 +86,7 @@ public class UserServiceTest {
         assertEquals(userByLoginCredentials.get().getFirstName(), testUser.getFirstName());
         assertEquals(userByLoginCredentials.get().getLastName(), testUser.getLastName());
         assertEquals(userByLoginCredentials.get().getEmail(), testUser.getEmail());
+        assertEquals(userByLoginCredentials.get().getSaldo(), testUser.getSaldo());
     }
 
     @Test
@@ -125,5 +127,6 @@ public class UserServiceTest {
         assertEquals(user.getFirstName(), testUser.getFirstName());
         assertEquals(user.getLastName(), testUser.getLastName());
         assertEquals(user.getEmail(), testUser.getEmail());
+        assertEquals(user.getSaldo(), testUser.getSaldo());
     }
 }

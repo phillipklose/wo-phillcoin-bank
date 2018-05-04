@@ -8,6 +8,7 @@ public class UserBuilder {
     private String firstName;
     private String lastName;
     private String email;
+    private int saldo;
 
     public UserBuilder setLogin(String login) {
         this.login = login;
@@ -34,6 +35,11 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder setSaldo(int saldo) {
+        this.saldo = saldo;
+        return this;
+    }
+
     public User build() {
         User user = new User();
         user.setLogin(login);
@@ -41,6 +47,7 @@ public class UserBuilder {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
+        user.setSaldo(saldo);
         return user;
     }
 }

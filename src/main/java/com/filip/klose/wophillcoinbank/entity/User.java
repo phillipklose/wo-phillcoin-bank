@@ -12,6 +12,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private int saldo;
 
     public ObjectId getId() {
         return id;
@@ -61,4 +62,11 @@ public class User {
         this.email = email;
     }
 
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
 }

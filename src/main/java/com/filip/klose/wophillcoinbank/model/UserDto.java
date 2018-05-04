@@ -6,6 +6,7 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private String email;
+    private int saldo;
 
     public String getId() {
         return id;
@@ -45,5 +46,13 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 }
