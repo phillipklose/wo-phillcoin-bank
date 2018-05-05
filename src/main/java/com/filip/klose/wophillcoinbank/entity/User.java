@@ -78,4 +78,12 @@ public class User {
         saldo = saldo - fee;
     }
 
+    public void getCash(int cash) {
+        saldo = saldo - cash;
+    }
+
+    public void addCash(int cash) {
+        saldo = saldo + cash;
+    }
+
 }
