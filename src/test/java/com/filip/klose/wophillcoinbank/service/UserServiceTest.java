@@ -64,10 +64,13 @@ public class UserServiceTest {
 
     @Test
     public void getUserByProperLoginCredentialsWhereLoginIsUsed() {
+        // given
         LoginCredentialsDto credentials = new LoginCredentialsDto("testLogin", "password");
 
+        // when
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
 
+        // then
         assertTrue(userByLoginCredentials.isPresent());
         assertNotNull(userByLoginCredentials.get().getId());
         assertEquals(userByLoginCredentials.get().getLogin(), testUser.getLogin());
@@ -80,10 +83,13 @@ public class UserServiceTest {
 
     @Test
     public void getUserByProperLoginCredentialsWhereEmailIsUsed() {
+        // given
         LoginCredentialsDto credentials = new LoginCredentialsDto("testEmail", "password");
 
+        // when
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
 
+        // then
         assertTrue(userByLoginCredentials.isPresent());
         assertNotNull(userByLoginCredentials.get().getId());
         assertEquals(userByLoginCredentials.get().getLogin(), testUser.getLogin());
@@ -96,35 +102,46 @@ public class UserServiceTest {
 
     @Test
     public void getUserByInProperLoginCredentialsWhereWrongLoginIsUsed() {
+        // given
         LoginCredentialsDto credentials = new LoginCredentialsDto("wrongLogin", "password");
 
+        // when
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
 
+        // then
         assertFalse(userByLoginCredentials.isPresent());
     }
 
     @Test
     public void getUserByInProperLoginCredentialsWhereWrongPasswordIsUsed() {
+        // given
         LoginCredentialsDto credentials = new LoginCredentialsDto("testLogin", "wrongPassword");
 
+        // when
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
 
+        // then
         assertFalse(userByLoginCredentials.isPresent());
     }
 
     @Test
     public void getUserByInProperLoginCredentialsWhereWrongLoginAndPasswordAreUsed() {
+        // given
         LoginCredentialsDto credentials = new LoginCredentialsDto("wrongLogin", "wrongPassword");
 
+        // when
         final Optional<User> userByLoginCredentials = userService.getUserByLoginCredentials(credentials);
 
+        // then
         assertFalse(userByLoginCredentials.isPresent());
     }
 
     @Test
     public void getUserByUserIdWhenUserExistsItShouldReturnIt() {
+        // when
         final Optional<User> userByUserId = userService.getUserByUserId(testUser.getId().toString());
 
+        // then
         assertTrue(userByUserId.isPresent());
 
         final User user = userByUserId.get();
@@ -139,8 +156,10 @@ public class UserServiceTest {
 
     @Test
     public void getUserByUserIdWhenUserDoesNotExistsItShouldReturnEmpty() {
+        // when
         final Optional<User> userByUserId = userService.getUserByUserId("NotExistingId");
 
+        // then
         assertFalse(userByUserId.isPresent());
     }
 
@@ -156,8 +175,10 @@ public class UserServiceTest {
 
     @Test
     public void saveUser() {
+        // when
         final User user = userService.saveUser(testUserWithoutId);
 
+        // then
         assertNotNull(user);
         assertNotNull(user.getId());
         assertEquals(user.getLogin(), testUser.getLogin());

@@ -16,11 +16,14 @@ public class UserMapperTest {
 
     @Test
     public void testIfConvertedEntityToDtoWorksProperly() {
+        // given
         User userEntity = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
                 .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
 
+        // when
         UserDto convertedUserEntityToDto = modelMapper.map(userEntity, UserDto.class);
 
+        // then
         assertEquals(convertedUserEntityToDto.getLogin(), userEntity.getLogin());
         assertEquals(convertedUserEntityToDto.getFirstName(), userEntity.getFirstName());
         assertEquals(convertedUserEntityToDto.getLastName(), userEntity.getLastName());
@@ -30,11 +33,14 @@ public class UserMapperTest {
 
     @Test
     public void testIfConvertedEntityToSaldoDtoWorksProperly() {
+        // given
         User userEntity = new UserBuilder().setLogin("testLogin").setPassword("password").setFirstName("testFirstName")
                 .setLastName("testLastName").setEmail("testEmail").setSaldo(0).build();
 
+        // when
         SaldoDto convertedUserEntityToSaldoDto = modelMapper.map(userEntity, SaldoDto.class);
 
+        // then
         assertEquals(convertedUserEntityToSaldoDto.getSaldo(), userEntity.getSaldo());
     }
 }

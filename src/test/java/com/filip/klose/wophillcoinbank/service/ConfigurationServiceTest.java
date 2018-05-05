@@ -52,10 +52,13 @@ public class ConfigurationServiceTest {
 
     @Test
     public void testGetInterestConfigurationThatExistsAndShouldReturnIt() throws Exception {
+        // given
         when(configurationRepository.findConfigurationByType(ConfigurationType.INTEREST.name())).thenReturn(Optional.of(configuration));
 
+        // when
         final Configuration interestConfiguration = configurationService.getInterestConfiguration();
 
+        // then
         assertNotNull(interestConfiguration.getId());
         assertEquals(interestConfiguration.getType(), ConfigurationType.INTEREST.name());
         assertEquals(interestConfiguration.getValue(), String.valueOf(interest));
@@ -64,15 +67,19 @@ public class ConfigurationServiceTest {
     @Test(expected = ConfigurationNotFoundException.class)
     public void testGetInterestConfigurationThatDoesNotExistsAndThrowsConfigurationNotFoundException()
             throws ConfigurationNotFoundException {
+        // when
         final Configuration interestConfiguration = configurationService.getInterestConfiguration();
     }
 
     @Test
     public void testPutInterestConfigurationWithNoExistingOne() {
+        // given
         when(configurationRepository.save(any())).thenReturn(configuration);
 
+        // when
         final Configuration interestConfiguration = configurationService.putInterestConfiguration(interest);
 
+        // then
         assertNotNull(interestConfiguration.getId());
         assertEquals(interestConfiguration.getType(), ConfigurationType.INTEREST.name());
         assertEquals(interestConfiguration.getValue(), String.valueOf(interest));
@@ -80,11 +87,14 @@ public class ConfigurationServiceTest {
 
     @Test
     public void testPutInterestConfigurationWithExistingOne() {
+        // given
         when(configurationRepository.findConfigurationByType(ConfigurationType.INTEREST.name())).thenReturn(Optional.of(configuration));
         when(configurationRepository.save(any())).thenReturn(configuration);
 
+        // when
         final Configuration interestConfiguration = configurationService.putInterestConfiguration(interest);
 
+        // then
         assertNotNull(interestConfiguration.getId());
         assertEquals(interestConfiguration.getType(), ConfigurationType.INTEREST.name());
         assertEquals(interestConfiguration.getValue(), String.valueOf(interest));

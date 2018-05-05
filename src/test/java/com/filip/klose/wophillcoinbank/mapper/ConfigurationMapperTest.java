@@ -17,12 +17,15 @@ public class ConfigurationMapperTest {
 
     @Test
     public void testIfInterestConfigurationIsMappedCorrectlyToDto() {
+        // given
         Configuration configuration = new Configuration(ConfigurationType.INTEREST.name());
         configuration.setValue("777");
         configuration.setId(new ObjectId());
 
+        // when
         ConfigurationDto configurationDto = modelMapper.map(configuration, ConfigurationDto.class);
 
+        // then
         assertNotNull(configurationDto.getId());
         assertEquals(configurationDto.getType(), configuration.getType());
         assertEquals(configurationDto.getValue(), configuration.getValue());
