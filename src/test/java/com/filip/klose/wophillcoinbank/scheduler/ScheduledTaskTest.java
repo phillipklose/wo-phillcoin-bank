@@ -62,4 +62,14 @@ public class ScheduledTaskTest {
         Assert.assertEquals(user1.getSaldo(), startSaldoOfUser1 + scheduledTask.SALARY);
         Assert.assertEquals(user2.getSaldo(), startSaldoOfUser2 + scheduledTask.SALARY);
     }
+
+    @Test
+    public void accountMaintenanceFee() {
+        // when
+        scheduledTask.accountMaintenanceFee();
+
+        // then
+        Assert.assertEquals(user1.getSaldo(), startSaldoOfUser1 - scheduledTask.MAINTENANCE_FEE);
+        Assert.assertEquals(user2.getSaldo(), startSaldoOfUser2 - scheduledTask.MAINTENANCE_FEE);
+    }
 }

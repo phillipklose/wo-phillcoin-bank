@@ -73,4 +73,9 @@ public class User {
     public void applySalary(int salary) {
         saldo = saldo + salary;
     }
+
+    public void applyFee(int fee) {
+        saldo = saldo - fee;
+    }
+
 }
