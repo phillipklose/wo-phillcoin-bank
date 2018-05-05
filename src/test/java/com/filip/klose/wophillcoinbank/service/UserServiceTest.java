@@ -1,15 +1,15 @@
 package com.filip.klose.wophillcoinbank.service;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -56,6 +56,8 @@ public class UserServiceTest {
                 "testEmail", "password")).thenReturn(Optional.of(testUser));
 
         when(userRepository.findById(testUser.getId().toString())).thenReturn(Optional.of(testUser));
+
+        when(userRepository.findAll()).thenReturn(List.of(testUser, testUserWithoutId));
 
         when(userRepository.save(testUserWithoutId)).thenReturn(testUser);
     }
@@ -140,6 +142,16 @@ public class UserServiceTest {
         final Optional<User> userByUserId = userService.getUserByUserId("NotExistingId");
 
         assertFalse(userByUserId.isPresent());
+    }
+
+    @Test
+    public void getAllUsersWhenTwoUsersExistReturnTwo() {
+        // when
+        final List<User> users = userService.getAllUsers();
+
+        // then
+        assertFalse(users.isEmpty());
+        assertEquals(users.size(), 2);
     }
 
     @Test

@@ -69,4 +69,8 @@ public class User {
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
+
+    public void applySalary(int salary) {
+        saldo = saldo + salary;
+    }
 }
