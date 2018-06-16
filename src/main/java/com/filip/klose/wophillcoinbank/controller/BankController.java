@@ -9,6 +9,7 @@ import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
 import com.filip.klose.wophillcoinbank.mapper.CashOutOfBankMapper;
 import com.filip.klose.wophillcoinbank.model.CashOutOfBankDto;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
+import com.filip.klose.wophillcoinbank.runtime.exception.CashNotValidException;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
 import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
 import com.filip.klose.wophillcoinbank.runtime.exception.UserNotFoundException;
@@ -43,6 +44,17 @@ public class BankController {
             final CashOutOfBankDto cashOutOfBankDto = mapper.convertToDto(cash);
             return ResponseEntity.ok(cashOutOfBankDto);
         } catch (GetCashException | UserNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/putCash")
+    @ResponseBody
+    public ResponseEntity<?> putCash(@RequestParam("userId") String userId, @RequestBody CashOutOfBankDto cashOutOfBankDto) {
+        try {
+            bankService.putCash(userId, cashOutOfBankDto.getId());
+            return ResponseEntity.ok().build();
+        } catch (UserNotFoundException | CashNotValidException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }

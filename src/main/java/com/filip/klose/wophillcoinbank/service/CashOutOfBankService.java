@@ -1,5 +1,7 @@
 package com.filip.klose.wophillcoinbank.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,14 @@ public class CashOutOfBankService {
     public CashOutOfBank saveOutOfBankCash(int amount) {
         CashOutOfBank cash = new CashOutOfBank(amount);
         return cashOutOfBankRepository.save(cash);
+    }
+
+    public Optional<CashOutOfBank> getCashOutOfBank(String cashId) {
+        return cashOutOfBankRepository.findById(cashId);
+    }
+
+    public void removeCashOutOfBankEntry(String cashId) {
+        cashOutOfBankRepository.deleteById(cashId);
     }
 
 }

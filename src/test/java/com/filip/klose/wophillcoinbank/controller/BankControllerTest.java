@@ -1,5 +1,6 @@
 package com.filip.klose.wophillcoinbank.controller;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -25,8 +26,11 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.filip.klose.wophillcoinbank.WoPhillcoinBankApplication;
+import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
 import com.filip.klose.wophillcoinbank.entity.User;
+import com.filip.klose.wophillcoinbank.model.CashOutOfBankDto;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
+import com.filip.klose.wophillcoinbank.service.CashOutOfBankService;
 import com.filip.klose.wophillcoinbank.service.UserService;
 
 @RunWith(SpringRunner.class)
@@ -44,6 +48,9 @@ public class BankControllerTest {
 
     @MockBean
     private UserService userService;
+
+    @MockBean
+    private CashOutOfBankService cashOutOfBankService;
 
     @Autowired
     private ObjectMapper mapper;
@@ -161,6 +168,69 @@ public class BankControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").isNotEmpty())
                 .andExpect(jsonPath("amount").value(amount));
+    }
+
+    @Test
+    public void putCashForNotExistingUserShouldReturnBadRequest() throws Exception {
+        // given
+        String notExistingUserId = "notExistingUserId";
+        String existingCashId = "existingCashId";
+        CashOutOfBankDto cashOutOfBankDto = new CashOutOfBankDto();
+        cashOutOfBankDto.setId(existingCashId);
+        cashOutOfBankDto.setAmount(100);
+
+        // when
+        when(userService.getUserByUserId(notExistingUserId)).thenReturn(Optional.empty());
+
+        // then
+        mockMvc.perform(post("/bank/putCash/").param("userId", notExistingUserId)
+                .content(mapper.writeValueAsString(cashOutOfBankDto)).contentType(contentType))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void putCashForNotExistingCashIdShouldReturnBadRequest() throws Exception {
+        // given
+        String existingUserId = "existingUserId";
+        String notExistingCashId = "notExistingCashId";
+
+        CashOutOfBankDto cashOutOfBankDto = new CashOutOfBankDto();
+        cashOutOfBankDto.setId(notExistingCashId);
+        cashOutOfBankDto.setAmount(100);
+
+        User user = mock(User.class);
+
+        // when
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(user));
+        when(cashOutOfBankService.getCashOutOfBank(notExistingCashId)).thenReturn(Optional.empty());
+
+        // then
+        mockMvc.perform(post("/bank/putCash/").param("userId", existingUserId)
+                .content(mapper.writeValueAsString(cashOutOfBankDto)).contentType(contentType))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void putCashShouldReturnOk() throws Exception {
+        // given
+        String existingUserId = "existingUserId";
+        String existingCashId = "existingCashId";
+
+        CashOutOfBankDto cashOutOfBankDto = new CashOutOfBankDto();
+        cashOutOfBankDto.setId(existingCashId);
+        cashOutOfBankDto.setAmount(100);
+
+        User user = mock(User.class);
+        CashOutOfBank cash = mock(CashOutOfBank.class);
+
+        // when
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(user));
+        when(cashOutOfBankService.getCashOutOfBank(existingCashId)).thenReturn(Optional.of(cash));
+
+        // then
+        mockMvc.perform(post("/bank/putCash/").param("userId", existingUserId)
+                .content(mapper.writeValueAsString(cashOutOfBankDto)).contentType(contentType))
+                .andExpect(status().isOk());
     }
 
 }

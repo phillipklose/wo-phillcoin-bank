@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
+import com.filip.klose.wophillcoinbank.runtime.exception.CashNotValidException;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
 import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
 import com.filip.klose.wophillcoinbank.runtime.exception.UserNotFoundException;
@@ -32,10 +33,18 @@ public class BankService {
     }
 
     public CashOutOfBank getCash(String userId, int amount) throws GetCashException, UserNotFoundException {
-        final Optional<User> user = userService.getUserByUserId(userId);
-        final User userThatGetsCash = user.orElseThrow(UserNotFoundException::new);
-        userThatGetsCash.getCash(amount);
+        final User user = userService.getUserByUserId(userId).orElseThrow(UserNotFoundException::new);
+        user.getCash(amount);
+        userService.saveUser(user);
         return cashOutOfBankService.saveOutOfBankCash(amount);
+    }
+
+    public void putCash(String userId, String cashId) throws UserNotFoundException, CashNotValidException {
+        final User user = userService.getUserByUserId(userId).orElseThrow(UserNotFoundException::new);
+        final CashOutOfBank cashOutOfBank = cashOutOfBankService.getCashOutOfBank(cashId).orElseThrow(CashNotValidException::new);
+        user.addCash(cashOutOfBank.getAmount());
+        userService.saveUser(user);
+        cashOutOfBankService.removeCashOutOfBankEntry(cashId);
     }
 
     private void handleCashTransfer(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo)
@@ -50,7 +59,8 @@ public class BankService {
         userService.saveUser(userTo);
     }
 
-    private void transferCashBetweenAccounts(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo) throws GetCashException {
+    private void transferCashBetweenAccounts(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo) throws
+            GetCashException {
         userFrom.getCash(betweenAccountsDto.amount);
         userTo.addCash(betweenAccountsDto.amount);
     }

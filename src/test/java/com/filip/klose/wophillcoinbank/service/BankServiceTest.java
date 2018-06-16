@@ -1,5 +1,6 @@
 package com.filip.klose.wophillcoinbank.service;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -16,6 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
+import com.filip.klose.wophillcoinbank.runtime.exception.CashNotValidException;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
 import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
 import com.filip.klose.wophillcoinbank.runtime.exception.UserNotFoundException;
@@ -106,6 +108,33 @@ public class BankServiceTest {
 
         // when
         bankService.getCash(existingUserId, amount);
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void putCashForNotExistingUserShouldThrowUserNotFoundException() throws UserNotFoundException, CashNotValidException {
+        // given
+        String notExistingUserId = "notExistingUserId";
+        String existingCashId = "existingCashId";
+
+        when(userService.getUserByUserId(notExistingUserId)).thenReturn(Optional.empty());
+
+        // when
+        bankService.putCash(notExistingUserId, existingCashId);
+    }
+
+    @Test(expected = CashNotValidException.class)
+    public void putCashForNotExistingCashIdShouldThrowCashNotValidException() throws UserNotFoundException, CashNotValidException {
+        // given
+        String existingUserId = "existingUserId";
+        String notExistingCashId = "notExistingCashId";
+
+        User user = mock(User.class);
+
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(user));
+        when(cashOutOfBankService.getCashOutOfBank(notExistingCashId)).thenReturn(Optional.empty());
+
+        // when
+        bankService.putCash(existingUserId, notExistingCashId);
     }
 
 }
