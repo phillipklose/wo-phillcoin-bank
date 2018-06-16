@@ -22,6 +22,9 @@ public class BankService {
     @Autowired
     private CashOutOfBankService cashOutOfBankService;
 
+    @Autowired
+    private TransactionService transactionService;
+
     public void transferBeetwenAccounts(TransferBetweenAccountsDto betweenAccountsDto) throws CashTransferException, GetCashException {
         final Optional<User> userToTransferFrom = userService.getUserByUserId(betweenAccountsDto.from);
         final Optional<User> userToTransferTo = userService.getUserByUserId(betweenAccountsDto.to);
@@ -36,6 +39,7 @@ public class BankService {
         final User user = userService.getUserByUserId(userId).orElseThrow(UserNotFoundException::new);
         user.getCash(amount);
         userService.saveUser(user);
+        transactionService.saveTransaction(userId, -amount);
         return cashOutOfBankService.saveOutOfBankCash(amount);
     }
 
@@ -44,6 +48,7 @@ public class BankService {
         final CashOutOfBank cashOutOfBank = cashOutOfBankService.getCashOutOfBank(cashId).orElseThrow(CashNotValidException::new);
         user.addCash(cashOutOfBank.getAmount());
         userService.saveUser(user);
+        transactionService.saveTransaction(userId, cashOutOfBank.getAmount());
         cashOutOfBankService.removeCashOutOfBankEntry(cashId);
     }
 

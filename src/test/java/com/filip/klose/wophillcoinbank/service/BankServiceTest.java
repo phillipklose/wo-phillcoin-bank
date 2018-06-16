@@ -46,6 +46,9 @@ public class BankServiceTest {
     @MockBean
     private CashOutOfBankService cashOutOfBankService;
 
+    @MockBean
+    private TransactionService transactionService;
+
     @Mock
     private User userFrom, userTo;
 

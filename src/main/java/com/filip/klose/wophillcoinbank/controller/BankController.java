@@ -41,6 +41,7 @@ public class BankController {
     public ResponseEntity<?> getCash(@RequestParam("userId") String userId, @RequestParam("amount") int amount) {
         try {
             final CashOutOfBank cash = bankService.getCash(userId, amount);
+
             final CashOutOfBankDto cashOutOfBankDto = mapper.convertToDto(cash);
             return ResponseEntity.ok(cashOutOfBankDto);
         } catch (GetCashException | UserNotFoundException e) {
