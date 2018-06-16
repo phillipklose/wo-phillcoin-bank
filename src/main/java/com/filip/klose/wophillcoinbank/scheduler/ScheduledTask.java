@@ -1,5 +1,10 @@
 package com.filip.klose.wophillcoinbank.scheduler;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +12,13 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.filip.klose.wophillcoinbank.entity.CyclicTransfer;
 import com.filip.klose.wophillcoinbank.entity.User;
+import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
+import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
+import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
+import com.filip.klose.wophillcoinbank.service.BankService;
+import com.filip.klose.wophillcoinbank.service.CyclicTransferService;
 import com.filip.klose.wophillcoinbank.service.EmailService;
 import com.filip.klose.wophillcoinbank.service.UserService;
 
@@ -19,15 +30,22 @@ public class ScheduledTask {
     public static final int PAYMENT_INTERVAL = 20 * 60 * 1000;
     public static final int SALDO_STATUS_INTERVAL = 20 * 60 * 1000;
     public static final int MAINTENANCE_FEE_INTERVAL = 10 * 60 * 1000;
+    public static final int CYCLE_PAYMENTS_INTERVAL_CHECK = 1000;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CyclicTransferService cyclicTransferService;
 
     @Autowired
     private SimpleMailMessage template;
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private BankService bankService;
 
     @Scheduled(fixedRate = PAYMENT_INTERVAL)
     public void employerTransfersPayment() {
@@ -42,6 +60,11 @@ public class ScheduledTask {
     @Scheduled(fixedRate = SALDO_STATUS_INTERVAL)
     public void saldoStatusInterval() {
         sendSaldoStatus(userService.getAllUsers());
+    }
+
+    @Scheduled(fixedRate = CYCLE_PAYMENTS_INTERVAL_CHECK)
+    public void cyclePaymentsInterval() {
+        handleCyclePayments();
     }
 
     private void paySalary(List<User> users) {
@@ -63,6 +86,28 @@ public class ScheduledTask {
             String text = String.format(template.getText(), user.getFirstName(), user.getSaldo());
             emailService.sendAccountSaldoMessage(user.getEmail(), "Wo-Phillcoin-Bank Saldo Status", text);
         }
+    }
+
+    private void handleCyclePayments() {
+        final List<CyclicTransfer> allCyclicTransfers = cyclicTransferService.getAll();
+        for (CyclicTransfer allCyclicTransfer : allCyclicTransfers) {
+            if (allCyclicTransfer.getTransactionTime().before(new Date())) {
+                TransferBetweenAccountsDto transferBetweenAccountsDto = toTransferBetweenAccountsDto(allCyclicTransfer);
+                try {
+                    bankService.transferBeetwenAccounts(transferBetweenAccountsDto);
+                    LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(allCyclicTransfer.getIntervalInMinutes(), ChronoUnit.MINUTES));
+                    Date tmfn = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
+                    allCyclicTransfer.setTransactionTime(tmfn);
+                    cyclicTransferService.saveCyclicTransfer(allCyclicTransfer);
+                } catch (CashTransferException | GetCashException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private TransferBetweenAccountsDto toTransferBetweenAccountsDto(CyclicTransfer cyclicTransfer) {
+        return new TransferBetweenAccountsDto(cyclicTransfer.getFrom(), cyclicTransfer.getTo(), cyclicTransfer.getAmount());
     }
 
 }

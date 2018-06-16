@@ -36,6 +36,18 @@ public class BankController {
         }
     }
 
+    @PostMapping("/transfer/cyclic")
+    @ResponseBody
+    public ResponseEntity<?> transferBetweenAccounts(@RequestParam("cycle") int cycleIntervalInMinutes,
+                                                     @RequestBody TransferBetweenAccountsDto betweenAccountsDto) {
+        try {
+            bankService.transferBeetwenAccountsInCycle(betweenAccountsDto, cycleIntervalInMinutes);
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
     @GetMapping("/getCash")
     @ResponseBody
     public ResponseEntity<?> getCash(@RequestParam("userId") String userId, @RequestParam("amount") int amount) {

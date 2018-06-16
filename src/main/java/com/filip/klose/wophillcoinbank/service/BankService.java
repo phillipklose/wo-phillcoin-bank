@@ -1,11 +1,17 @@
 package com.filip.klose.wophillcoinbank.service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
+import com.filip.klose.wophillcoinbank.entity.CyclicTransfer;
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashNotValidException;
@@ -25,6 +31,9 @@ public class BankService {
     @Autowired
     private TransactionService transactionService;
 
+    @Autowired
+    private CyclicTransferService cyclicTransferService;
+
     public void transferBeetwenAccounts(TransferBetweenAccountsDto betweenAccountsDto) throws CashTransferException, GetCashException {
         final Optional<User> userToTransferFrom = userService.getUserByUserId(betweenAccountsDto.from);
         final Optional<User> userToTransferTo = userService.getUserByUserId(betweenAccountsDto.to);
@@ -32,6 +41,25 @@ public class BankService {
             handleCashTransfer(betweenAccountsDto, userToTransferFrom.get(), userToTransferTo.get());
         } else {
             throw new CashTransferException();
+        }
+    }
+
+    public void transferBeetwenAccountsInCycle(TransferBetweenAccountsDto betweenAccountsDto, int cycleInMinutes) throws
+            UserNotFoundException {
+        final Optional<User> userToTransferFrom = userService.getUserByUserId(betweenAccountsDto.from);
+        final Optional<User> userToTransferTo = userService.getUserByUserId(betweenAccountsDto.to);
+        if (userToTransferFrom.isPresent() && userToTransferTo.isPresent()) {
+            CyclicTransfer cyclicTransfer = new CyclicTransfer();
+            cyclicTransfer.setAmount(betweenAccountsDto.getAmount());
+            cyclicTransfer.setFrom(betweenAccountsDto.getFrom());
+            cyclicTransfer.setTo(betweenAccountsDto.getTo());
+            cyclicTransfer.setIntervalInMinutes(cycleInMinutes);
+            LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(cycleInMinutes, ChronoUnit.MINUTES));
+            Date tmfn = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
+            cyclicTransfer.setTransactionTime(tmfn);
+            cyclicTransferService.saveCyclicTransfer(cyclicTransfer);
+        } else {
+            throw new UserNotFoundException();
         }
     }
 

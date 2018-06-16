@@ -233,4 +233,32 @@ public class BankControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    public void transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest() throws Exception {
+        // given
+        int amount = 100;
+        String notExistingUserId = "notExistingUserId";
+        TransferBetweenAccountsDto betweenAccountsDto = new TransferBetweenAccountsDto(notExistingUserId, accountToTransferTo, amount);
+
+        // when & then
+        mockMvc.perform(post("/bank/transfer/cyclic").param("cycle", "1").content(mapper.writeValueAsString(betweenAccountsDto))
+                .contentType(contentType))
+                .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    public void transferBetweenAccountsWithCycleBothUsersDoesNotExistThenBadRequest() throws Exception {
+        // given
+        int amount = 100;
+        String notExistingUserId = "notExistingUserId";
+        TransferBetweenAccountsDto betweenAccountsDto = new TransferBetweenAccountsDto(notExistingUserId, notExistingUserId, amount);
+
+        // when & then
+        mockMvc.perform(post("/bank/transfer/cyclic").param("cycle", "1").content(mapper.writeValueAsString(betweenAccountsDto))
+                .contentType(contentType))
+                .andExpect(status().isBadRequest());
+
+    }
+
 }
