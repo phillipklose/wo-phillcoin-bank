@@ -24,7 +24,7 @@ public class InfoController {
 
     @GetMapping("/saldo")
     @ResponseBody
-    public ResponseEntity<?> registerUser(@RequestParam("userId") String userId) {
+    public ResponseEntity<?> getSaldoForUser(@RequestParam("userId") String userId) {
         final Optional<User> user = userService.getUserByUserId(userId);
         if (user.isPresent()) {
             final SaldoDto saldoDto = mapper.convertToSaldoDto(user.get());

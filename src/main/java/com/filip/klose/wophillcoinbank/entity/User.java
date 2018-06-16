@@ -3,6 +3,8 @@ package com.filip.klose.wophillcoinbank.entity;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
+import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
+
 public class User {
 
     @Id
@@ -78,8 +80,16 @@ public class User {
         saldo = saldo - fee;
     }
 
-    public void getCash(int cash) {
-        saldo = saldo - cash;
+    public void getCash(int cash) throws GetCashException {
+        if (isEnoughCashToGet(cash)) {
+            saldo = saldo - cash;
+        } else {
+            throw new GetCashException();
+        }
+    }
+
+    private boolean isEnoughCashToGet(int cash) {
+        return saldo - cash >= 0;
     }
 
     public void addCash(int cash) {

@@ -1,7 +1,9 @@
 package com.filip.klose.wophillcoinbank.controller;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -111,6 +113,54 @@ public class BankControllerTest {
         mockMvc.perform(post("/bank/transfer/").content(mapper.writeValueAsString(betweenAccountsDto))
                 .contentType(contentType))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void getCashForUserThatDoesNotExistShouldReturnBadRequest() throws Exception {
+        // given
+        String amount = "100";
+        String notExistingUserId = "notExistingUserId";
+
+        // when
+        when(userService.getUserByUserId(notExistingUserId)).thenReturn(Optional.empty());
+
+        // then
+        mockMvc.perform(get("/bank/getCash/").param("userId", notExistingUserId).param("amount", amount))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void getCashForUserWithNotEnoughCashInBankShouldReturnBadRequest() throws Exception {
+        // given
+        String amount = "100";
+        String existingUserId = "existingUserId";
+        User existingUser = new User();
+        existingUser.setSaldo(0);
+
+        // when
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(existingUser));
+
+        // then
+        mockMvc.perform(get("/bank/getCash/").param("userId", existingUserId).param("amount", amount))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void getCashForUserWithEnoughCashInBankShouldReturnOkAndJsonWithMoney() throws Exception {
+        // given
+        String amount = "100";
+        String existingUserId = "existingUserId";
+        User existingUser = new User();
+        existingUser.setSaldo(1000);
+
+        // when
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(existingUser));
+
+        // then
+        mockMvc.perform(get("/bank/getCash/").param("userId", existingUserId).param("amount", amount))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("id").isNotEmpty())
+                .andExpect(jsonPath("amount").value(amount));
     }
 
 }

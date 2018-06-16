@@ -5,9 +5,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
+import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
+import com.filip.klose.wophillcoinbank.runtime.exception.UserNotFoundException;
 
 @Service
 public class BankService {
@@ -15,7 +18,10 @@ public class BankService {
     @Autowired
     private UserService userService;
 
-    public void transferBeetwenAccounts(TransferBetweenAccountsDto betweenAccountsDto) throws CashTransferException {
+    @Autowired
+    private CashOutOfBankService cashOutOfBankService;
+
+    public void transferBeetwenAccounts(TransferBetweenAccountsDto betweenAccountsDto) throws CashTransferException, GetCashException {
         final Optional<User> userToTransferFrom = userService.getUserByUserId(betweenAccountsDto.from);
         final Optional<User> userToTransferTo = userService.getUserByUserId(betweenAccountsDto.to);
         if (userToTransferFrom.isPresent() && userToTransferTo.isPresent()) {
@@ -25,8 +31,15 @@ public class BankService {
         }
     }
 
+    public CashOutOfBank getCash(String userId, int amount) throws GetCashException, UserNotFoundException {
+        final Optional<User> user = userService.getUserByUserId(userId);
+        final User userThatGetsCash = user.orElseThrow(UserNotFoundException::new);
+        userThatGetsCash.getCash(amount);
+        return cashOutOfBankService.saveOutOfBankCash(amount);
+    }
+
     private void handleCashTransfer(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo)
-            throws CashTransferException {
+            throws CashTransferException, GetCashException {
         validateTransaction(betweenAccountsDto, userFrom);
         transferCashBetweenAccounts(betweenAccountsDto, userFrom, userTo);
         storeUpdatedAccountSaldo(userFrom, userTo);
@@ -37,7 +50,7 @@ public class BankService {
         userService.saveUser(userTo);
     }
 
-    private void transferCashBetweenAccounts(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo) {
+    private void transferCashBetweenAccounts(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo) throws GetCashException {
         userFrom.getCash(betweenAccountsDto.amount);
         userTo.addCash(betweenAccountsDto.amount);
     }

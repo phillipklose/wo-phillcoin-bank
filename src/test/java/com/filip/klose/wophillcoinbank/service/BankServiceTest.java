@@ -17,6 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
+import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
+import com.filip.klose.wophillcoinbank.runtime.exception.UserNotFoundException;
 
 @RunWith(SpringRunner.class)
 public class BankServiceTest {
@@ -39,6 +41,9 @@ public class BankServiceTest {
     @MockBean
     private UserService userService;
 
+    @MockBean
+    private CashOutOfBankService cashOutOfBankService;
+
     @Mock
     private User userFrom, userTo;
 
@@ -49,7 +54,7 @@ public class BankServiceTest {
     }
 
     @Test(expected = CashTransferException.class)
-    public void transferBetweenAccountsIfNoUserFromThenThrowException() throws CashTransferException {
+    public void transferBetweenAccountsIfNoUserFromThenThrowException() throws CashTransferException, GetCashException {
         // given
         int amount = 100;
         TransferBetweenAccountsDto betweenAccountsDto = new TransferBetweenAccountsDto("noUserFrom", accountToTransferTo, amount);
@@ -59,7 +64,7 @@ public class BankServiceTest {
     }
 
     @Test(expected = CashTransferException.class)
-    public void transferBetweenAccountsIfNoUserToThenThrowException() throws CashTransferException {
+    public void transferBetweenAccountsIfNoUserToThenThrowException() throws CashTransferException, GetCashException {
         // given
         int amount = 100;
         TransferBetweenAccountsDto betweenAccountsDto = new TransferBetweenAccountsDto(accountToTransferFrom, "noUserTo", amount);
@@ -69,7 +74,7 @@ public class BankServiceTest {
     }
 
     @Test(expected = CashTransferException.class)
-    public void transferBetweenAccountsIfUserFromHasNotEnoughSaldoThenThrowException() throws CashTransferException {
+    public void transferBetweenAccountsIfUserFromHasNotEnoughSaldoThenThrowException() throws CashTransferException, GetCashException {
         // given
         int amount = 100;
         TransferBetweenAccountsDto betweenAccountsDto = new TransferBetweenAccountsDto(accountToTransferFrom, "noUserTo", amount);
@@ -77,6 +82,30 @@ public class BankServiceTest {
 
         // when
         bankService.transferBeetwenAccounts(betweenAccountsDto);
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void getCashForNotExistingUserShouldThrowUserNotFoundException() throws UserNotFoundException, GetCashException {
+        // given
+        int amount = 100;
+        String notExistingUserId = "notExistingUserId";
+        when(userService.getUserByUserId(notExistingUserId)).thenReturn(Optional.empty());
+
+        // when
+        bankService.getCash(notExistingUserId, amount);
+    }
+
+    @Test(expected = GetCashException.class)
+    public void getCashForExistingUserWithNotEnoughMoneyShouldThrowGetCashException() throws UserNotFoundException, GetCashException {
+        // given
+        int amount = 100;
+        String existingUserId = "existingUserId";
+        User user = new User();
+        user.setSaldo(0);
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(user));
+
+        // when
+        bankService.getCash(existingUserId, amount);
     }
 
 }
