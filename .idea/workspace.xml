@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62c652ff-081a-4d0a-80af-56688b6b776c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/CyclicTransfer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/CyclicTransferDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/CyclicTransferRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/CyclicTransferService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/LoanCashServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -51,52 +54,11 @@
       <file leaf-file-name="BankController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="40" column="73" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="73" />
+            <state relative-caret-position="357">
+              <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserNotFoundException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/runtime/exception/UserNotFoundException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransferBetweenAccountsDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/TransferBetweenAccountsDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-                <element signature="e#465#466#0" expanded="true" />
-                <element signature="e#497#498#0" expanded="true" />
-                <element signature="e#526#527#0" expanded="true" />
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#587#588#0" expanded="true" />
-                <element signature="e#615#616#0" expanded="true" />
-                <element signature="e#645#646#0" expanded="true" />
-                <element signature="e#674#675#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
-                <element signature="e#751#752#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CyclicTransfer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/CyclicTransfer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -104,8 +66,8 @@
       <file leaf-file-name="BankService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+            <state relative-caret-position="200">
+              <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,35 +75,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankControllerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java">
+      <file leaf-file-name="BankServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="253" column="55" lean-forward="true" selection-start-line="253" selection-start-column="55" selection-end-line="253" selection-end-column="55" />
+            <state relative-caret-position="561">
+              <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CyclicTransferRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/CyclicTransferRepository.java">
+      <file leaf-file-name="ScheduledTaskTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            <state relative-caret-position="391">
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CyclicTransferService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/CyclicTransferService.java">
+      <file leaf-file-name="LoanCashTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#663#664#0" expanded="true" />
-                <element signature="e#723#724#0" expanded="true" />
-                <element signature="e#773#774#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoanCash.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -149,21 +114,43 @@
       <file leaf-file-name="ScheduledTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
-              <folding>
-                <element signature="e#1576#1577#0" expanded="true" />
-                <element signature="e#1593#1594#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="42" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RaportController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java">
+      <file leaf-file-name="BankControllerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="36" column="26" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="26" />
+            <state relative-caret-position="2533">
+              <caret line="183" column="44" selection-start-line="183" selection-start-column="44" selection-end-line="183" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/TransactionService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+              <folding>
+                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#889#890#0" expanded="true" />
+                <element signature="e#928#929#0" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1014#1015#0" expanded="true" />
+                <element signature="e#1062#1063#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,18 +189,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/ConfigurationControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/builder/UserBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/SaldoDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/ConfigurationServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/UserMapperTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/ConfigurationMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/DefaultEmailService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/WoPhillcoinBankApplication.java" />
@@ -242,17 +223,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/TransactionRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/TransactionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/enumerations/BankOperation.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/TransactionServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/TransferBetweenAccountsCycleDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/CyclicTransferDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/CyclicTransfer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/CyclicTransferRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/CyclicTransferService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/LoanCashServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java" />
       </list>
     </option>
   </component>
@@ -447,6 +434,15 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wophillcoinbank" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wo-phillcoin-bank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wophillcoinbank" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wophillcoinbank" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -494,6 +490,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.filip.klose.wophillcoinbank.entity" />
       <recent name="com.filip.klose.wophillcoinbank.service" />
       <recent name="com.filip.klose.wophillcoinbank.mapper" />
       <recent name="com.filip.klose.wophillcoinbank.controller" />
@@ -504,8 +501,8 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.filip.klose.wophillcoinbank.service" />
-      <recent name="com.filip.klose.wophillcoinbank.entity" />
       <recent name="com.filip.klose.wophillcoinbank.repository" />
+      <recent name="com.filip.klose.wophillcoinbank.entity" />
       <recent name="com.filip.klose.wophillcoinbank.model" />
       <recent name="com.filip.klose.wophillcoinbank.runtime.exception" />
     </key>
@@ -572,50 +569,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BankControllerTest">
+  <component name="RunManager" selected="JUnit.All in wo-phillcoin-bank">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="BankControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in wo-phillcoin-bank" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wo-phillcoin-bank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.filip.klose.wophillcoinbank.controller.BankControllerTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="BankControllerTest.transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wo-phillcoin-bank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.filip.klose.wophillcoinbank.controller.BankControllerTest" />
-      <option name="METHOD_NAME" value="transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -648,20 +616,20 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TransactionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoanCashTest.calculateNewAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wo-phillcoin-bank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.service.*" />
+          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank.service" />
-      <option name="MAIN_CLASS_NAME" value="com.filip.klose.wophillcoinbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.filip.klose.wophillcoinbank.entity.LoanCashTest" />
+      <option name="METHOD_NAME" value="calculateNewAmount" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -671,20 +639,20 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TransactionServiceTest.saveTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScheduledTaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wo-phillcoin-bank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.service.*" />
+          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.scheduler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank.service" />
-      <option name="MAIN_CLASS_NAME" value="com.filip.klose.wophillcoinbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" value="saveTransaction" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank.scheduler" />
+      <option name="MAIN_CLASS_NAME" value="com.filip.klose.wophillcoinbank.scheduler.ScheduledTaskTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -701,6 +669,29 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="com.filip.klose.wophillcoinbank in wo-phillcoin-bank" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wo-phillcoin-bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.filip.klose.wophillcoinbank.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.filip.klose.wophillcoinbank" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -738,19 +729,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.WoPhillcoinBankApplication" />
+      <item itemvalue="JUnit.com.filip.klose.wophillcoinbank in wo-phillcoin-bank" />
       <item itemvalue="JUnit.BankServiceTest" />
-      <item itemvalue="JUnit.TransactionServiceTest" />
-      <item itemvalue="JUnit.TransactionServiceTest.saveTransaction" />
-      <item itemvalue="JUnit.BankControllerTest.transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest" />
-      <item itemvalue="JUnit.BankControllerTest" />
+      <item itemvalue="JUnit.ScheduledTaskTest" />
+      <item itemvalue="JUnit.All in wo-phillcoin-bank" />
+      <item itemvalue="JUnit.LoanCashTest.calculateNewAmount" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BankControllerTest" />
-        <item itemvalue="JUnit.BankControllerTest.transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest" />
-        <item itemvalue="JUnit.TransactionServiceTest.saveTransaction" />
-        <item itemvalue="JUnit.TransactionServiceTest" />
+        <item itemvalue="JUnit.All in wo-phillcoin-bank" />
+        <item itemvalue="JUnit.LoanCashTest.calculateNewAmount" />
+        <item itemvalue="JUnit.ScheduledTaskTest" />
         <item itemvalue="JUnit.BankServiceTest" />
+        <item itemvalue="JUnit.com.filip.klose.wophillcoinbank in wo-phillcoin-bank" />
       </list>
     </recent_temporary>
   </component>
@@ -774,44 +765,44 @@
       <workItem from="1525363837194" duration="1394000" />
       <workItem from="1525461922379" duration="20719000" />
       <workItem from="1527318003189" duration="650000" />
-      <workItem from="1529095105800" duration="19741000" />
+      <workItem from="1529095105800" duration="25308000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BankControllerTest_putCashShouldReturnOk - 2018.06.16 at 18h 24m 17s.xml">
-      <configuration name="BankControllerTest.putCashShouldReturnOk" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankControllerTest - 2018.06.16 at 18h 24m 32s.xml">
+    <history-entry file="BankControllerTest - 2018.06.17 at 06h 09m 50s.xml">
       <configuration name="BankControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankControllerTest_getCashForUserWithEnoughCashInBankShouldReturnOkAndJsonWithMoney - 2018.06.16 at 18h 25m 26s.xml">
-      <configuration name="BankControllerTest.getCashForUserWithEnoughCashInBankShouldReturnOkAndJsonWithMoney" configurationId="JUnit" />
+    <history-entry file="com_filip_klose_wophillcoinbank_in_wo-phillcoin-bank - 2018.06.17 at 06h 10m 19s.xml">
+      <configuration name="com.filip.klose.wophillcoinbank in wo-phillcoin-bank" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankServiceTest_putCashForNotExistingUserShouldThrowUserNotFoundException - 2018.06.16 at 18h 29m 29s.xml">
-      <configuration name="BankServiceTest.putCashForNotExistingUserShouldThrowUserNotFoundException" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankServiceTest_putCashForNotExistingCashIdShouldThrowCashNotValidException - 2018.06.16 at 18h 31m 38s.xml">
-      <configuration name="BankServiceTest.putCashForNotExistingCashIdShouldThrowCashNotValidException" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankServiceTest - 2018.06.16 at 20h 32m 17s.xml">
+    <history-entry file="BankServiceTest - 2018.06.17 at 06h 11m 04s.xml">
       <configuration name="BankServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankServiceTest - 2018.06.16 at 20h 32m 41s.xml">
+    <history-entry file="BankServiceTest - 2018.06.17 at 06h 11m 33s.xml">
       <configuration name="BankServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransactionServiceTest - 2018.06.16 at 20h 50m 41s.xml">
-      <configuration name="TransactionServiceTest" configurationId="JUnit" />
+    <history-entry file="ScheduledTaskTest - 2018.06.17 at 06h 12m 30s.xml">
+      <configuration name="ScheduledTaskTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransactionServiceTest_saveTransaction - 2018.06.16 at 20h 53m 23s.xml">
-      <configuration name="TransactionServiceTest.saveTransaction" configurationId="JUnit" />
+    <history-entry file="ScheduledTaskTest - 2018.06.17 at 06h 13m 09s.xml">
+      <configuration name="ScheduledTaskTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankControllerTest_transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest - 2018.06.16 at 23h 21m 41s.xml">
-      <configuration name="BankControllerTest.transferBetweenAccountsWithCycleUserToTransferDoesNotExistThenBadRequest" configurationId="JUnit" />
+    <history-entry file="All_in_wo-phillcoin-bank - 2018.06.17 at 06h 13m 37s.xml">
+      <configuration name="All in wo-phillcoin-bank" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LoanCashTest_calculateNewAmount - 2018.06.17 at 06h 15m 40s.xml">
+      <configuration name="LoanCashTest.calculateNewAmount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_wo-phillcoin-bank - 2018.06.17 at 06h 16m 05s.xml">
+      <configuration name="All in wo-phillcoin-bank" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_wo-phillcoin-bank - 2018.06.17 at 06h 17m 26s.xml">
+      <configuration name="All in wo-phillcoin-bank" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81066000" />
+    <option name="totallyTimeSpent" value="86633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="105" width="1936" height="1096" extended-state="6" />
@@ -871,7 +862,7 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -919,95 +910,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="53" lean-forward="true" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/WoPhillcoinBankApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/LoginControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/InfoControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="58" column="44" lean-forward="true" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/RaportControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1724#1725#0" expanded="true" />
-            <element signature="e#1799#1800#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/runtime/exception/GetCashException.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/runtime/exception/CashTransferException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-          <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/CashOutOfBankRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="76" lean-forward="true" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/ConfigurationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/EmailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/CashOutOfBank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1074,34 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/ConfigurationMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="99" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/CashOutOfBankMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/CashOutOfBankMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
@@ -1112,32 +986,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/runtime/exception/CashNotValidException.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="e#835#836#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#975#976#0" expanded="true" />
-            <element signature="e#1014#1015#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.5.RELEASE/spring-web-5.0.5.RELEASE.jar!/org/springframework/http/HttpStatus.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/CashOutOfBankServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="71" column="16" lean-forward="true" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1188,46 +1040,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/UserServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="e#1082#1083#0" expanded="true" />
-            <element signature="e#1130#1131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/TransactionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.6.RELEASE/spring-data-commons-2.0.6.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/TransactionServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="e#409#410#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1283,17 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="93" column="62" selection-start-line="93" selection-start-column="62" selection-end-line="93" selection-end-column="62" />
-          <folding>
-            <element signature="e#1576#1577#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/CyclicTransferService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1321,20 +1126,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/InfoControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        <state relative-caret-position="612">
+          <caret line="58" column="44" lean-forward="true" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/LoginControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/RaportControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/CashOutOfBankMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/ConfigurationMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="99" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/CashOutOfBankServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="71" column="16" lean-forward="true" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/ConfigurationServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-472">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/UserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2019">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/EmailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/WoPhillcoinBankApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/5.0.5.RELEASE/spring-context-support-5.0.5.RELEASE.jar!/org/springframework/mail/SimpleMailMessage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
+          <folding>
+            <element signature="e#2748#2749#0" expanded="true" />
+            <element signature="e#2780#2781#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/TransactionServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" selection-start-line="19" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="43" />
+          <folding>
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/LoanCashServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="68" column="58" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/CashOutOfBankMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding>
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/TransactionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="40" column="73" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="73" />
+        <state relative-caret-position="357">
+          <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1343,8 +1295,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="253" column="55" lean-forward="true" selection-start-line="253" selection-start-column="55" selection-end-line="253" selection-end-column="55" />
+        <state relative-caret-position="2533">
+          <caret line="183" column="44" selection-start-line="183" selection-start-column="44" selection-end-line="183" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="42" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
         </state>
       </provider>
     </entry>

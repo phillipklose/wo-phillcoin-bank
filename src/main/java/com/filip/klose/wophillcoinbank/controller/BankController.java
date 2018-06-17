@@ -53,7 +53,6 @@ public class BankController {
     public ResponseEntity<?> getCash(@RequestParam("userId") String userId, @RequestParam("amount") int amount) {
         try {
             final CashOutOfBank cash = bankService.getCash(userId, amount);
-
             final CashOutOfBankDto cashOutOfBankDto = mapper.convertToDto(cash);
             return ResponseEntity.ok(cashOutOfBankDto);
         } catch (GetCashException | UserNotFoundException e) {
@@ -68,6 +67,17 @@ public class BankController {
             bankService.putCash(userId, cashOutOfBankDto.getId());
             return ResponseEntity.ok().build();
         } catch (UserNotFoundException | CashNotValidException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/loan")
+    @ResponseBody
+    public ResponseEntity<?> loanCash(@RequestParam("userId") String userId, @RequestParam("amount") int amount) {
+        try {
+            bankService.loanCash(userId, amount);
+            return ResponseEntity.ok().build();
+        } catch (UserNotFoundException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }

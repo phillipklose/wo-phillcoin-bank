@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
 import com.filip.klose.wophillcoinbank.entity.CyclicTransfer;
+import com.filip.klose.wophillcoinbank.entity.LoanCash;
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashNotValidException;
@@ -33,6 +34,9 @@ public class BankService {
 
     @Autowired
     private CyclicTransferService cyclicTransferService;
+
+    @Autowired
+    private LoanCashService loanCashService;
 
     public void transferBeetwenAccounts(TransferBetweenAccountsDto betweenAccountsDto) throws CashTransferException, GetCashException {
         final Optional<User> userToTransferFrom = userService.getUserByUserId(betweenAccountsDto.from);
@@ -78,6 +82,12 @@ public class BankService {
         userService.saveUser(user);
         transactionService.saveTransaction(userId, cashOutOfBank.getAmount());
         cashOutOfBankService.removeCashOutOfBankEntry(cashId);
+    }
+
+    public void loanCash(String userId, int amount) throws UserNotFoundException {
+        userService.getUserByUserId(userId).orElseThrow(UserNotFoundException::new);
+        LoanCash loanCash = new LoanCash(userId, amount);
+        loanCashService.save(loanCash);
     }
 
     private void handleCashTransfer(TransferBetweenAccountsDto betweenAccountsDto, User userFrom, User userTo)

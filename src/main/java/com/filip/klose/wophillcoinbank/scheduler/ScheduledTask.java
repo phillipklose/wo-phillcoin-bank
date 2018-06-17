@@ -13,14 +13,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.filip.klose.wophillcoinbank.entity.CyclicTransfer;
+import com.filip.klose.wophillcoinbank.entity.LoanCash;
 import com.filip.klose.wophillcoinbank.entity.User;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
 import com.filip.klose.wophillcoinbank.runtime.exception.CashTransferException;
 import com.filip.klose.wophillcoinbank.runtime.exception.GetCashException;
-import com.filip.klose.wophillcoinbank.service.BankService;
-import com.filip.klose.wophillcoinbank.service.CyclicTransferService;
-import com.filip.klose.wophillcoinbank.service.EmailService;
-import com.filip.klose.wophillcoinbank.service.UserService;
+import com.filip.klose.wophillcoinbank.service.*;
 
 @Component
 public class ScheduledTask {
@@ -30,7 +28,7 @@ public class ScheduledTask {
     public static final int PAYMENT_INTERVAL = 20 * 60 * 1000;
     public static final int SALDO_STATUS_INTERVAL = 20 * 60 * 1000;
     public static final int MAINTENANCE_FEE_INTERVAL = 10 * 60 * 1000;
-    public static final int CYCLE_PAYMENTS_INTERVAL_CHECK = 1000;
+    public static final int INTERVAL_CHECK = 1000;
 
     @Autowired
     private UserService userService;
@@ -47,6 +45,9 @@ public class ScheduledTask {
     @Autowired
     private BankService bankService;
 
+    @Autowired
+    private LoanCashService loanCashService;
+
     @Scheduled(fixedRate = PAYMENT_INTERVAL)
     public void employerTransfersPayment() {
         paySalary(userService.getAllUsers());
@@ -62,9 +63,14 @@ public class ScheduledTask {
         sendSaldoStatus(userService.getAllUsers());
     }
 
-    @Scheduled(fixedRate = CYCLE_PAYMENTS_INTERVAL_CHECK)
+    @Scheduled(fixedRate = INTERVAL_CHECK)
     public void cyclePaymentsInterval() {
         handleCyclePayments();
+    }
+
+    @Scheduled(fixedRate = INTERVAL_CHECK)
+    public void loanCashInterval() {
+        handleLoanCashCheck();
     }
 
     private void paySalary(List<User> users) {
@@ -95,7 +101,8 @@ public class ScheduledTask {
                 TransferBetweenAccountsDto transferBetweenAccountsDto = toTransferBetweenAccountsDto(allCyclicTransfer);
                 try {
                     bankService.transferBeetwenAccounts(transferBetweenAccountsDto);
-                    LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(allCyclicTransfer.getIntervalInMinutes(), ChronoUnit.MINUTES));
+                    LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(allCyclicTransfer.getIntervalInMinutes(), ChronoUnit
+                            .MINUTES));
                     Date tmfn = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
                     allCyclicTransfer.setTransactionTime(tmfn);
                     cyclicTransferService.saveCyclicTransfer(allCyclicTransfer);
@@ -104,6 +111,24 @@ public class ScheduledTask {
                 }
             }
         }
+    }
+
+    private void handleLoanCashCheck() {
+        final List<LoanCash> loanCashes = loanCashService.getAll();
+        for (LoanCash loan : loanCashes) {
+            if (loan.getTimeToPayBack().before(new Date())) {
+                loan.calculateNewAmount();
+                loanCashService.save(loan);
+                sendLoanMessage(loan);
+            }
+        }
+    }
+
+    private void sendLoanMessage(LoanCash loan) {
+        final User user = userService.getUserByUserId(loan.getUserId()).get();
+        String text = String.format("Hi %s!\nYour loan gets bigger, current value is: %s\n\nWith Regards\nWo-Phillcoin-Bank", user
+                .getFirstName(), loan.getAmount());
+        emailService.sendAccountSaldoMessage(user.getEmail(), "Wo-Phillcoin-Bank Loan Status", text);
     }
 
     private TransferBetweenAccountsDto toTransferBetweenAccountsDto(CyclicTransfer cyclicTransfer) {

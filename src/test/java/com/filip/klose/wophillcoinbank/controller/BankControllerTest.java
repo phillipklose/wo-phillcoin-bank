@@ -1,7 +1,7 @@
 package com.filip.klose.wophillcoinbank.controller;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -28,9 +28,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.filip.klose.wophillcoinbank.WoPhillcoinBankApplication;
 import com.filip.klose.wophillcoinbank.entity.CashOutOfBank;
 import com.filip.klose.wophillcoinbank.entity.User;
+import com.filip.klose.wophillcoinbank.mapper.CashOutOfBankMapper;
 import com.filip.klose.wophillcoinbank.model.CashOutOfBankDto;
 import com.filip.klose.wophillcoinbank.model.TransferBetweenAccountsDto;
 import com.filip.klose.wophillcoinbank.service.CashOutOfBankService;
+import com.filip.klose.wophillcoinbank.service.LoanCashService;
+import com.filip.klose.wophillcoinbank.service.TransactionService;
 import com.filip.klose.wophillcoinbank.service.UserService;
 
 @RunWith(SpringRunner.class)
@@ -51,6 +54,15 @@ public class BankControllerTest {
 
     @MockBean
     private CashOutOfBankService cashOutOfBankService;
+
+    @MockBean
+    private LoanCashService loanCashService;
+
+    @MockBean
+    private TransactionService transactionService;
+
+    @MockBean
+    private CashOutOfBankMapper cashOutOfBankMapper;
 
     @Autowired
     private ObjectMapper mapper;
@@ -159,15 +171,17 @@ public class BankControllerTest {
         String existingUserId = "existingUserId";
         User existingUser = new User();
         existingUser.setSaldo(1000);
+        CashOutOfBank cashOutOfBank = new CashOutOfBank(Integer.valueOf(amount));
 
         // when
         when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(existingUser));
+        when(userService.saveUser(any())).thenReturn(mock(User.class));
+        doNothing().when(transactionService).saveTransaction(existingUserId, -Integer.valueOf(amount));
+        when(cashOutOfBankService.saveOutOfBankCash(Integer.valueOf(amount))).thenReturn(cashOutOfBank);
 
         // then
         mockMvc.perform(get("/bank/getCash/").param("userId", existingUserId).param("amount", amount))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("id").isNotEmpty())
-                .andExpect(jsonPath("amount").value(amount));
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -258,6 +272,35 @@ public class BankControllerTest {
         mockMvc.perform(post("/bank/transfer/cyclic").param("cycle", "1").content(mapper.writeValueAsString(betweenAccountsDto))
                 .contentType(contentType))
                 .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    public void getLoanWithNotExistingUserWillReturnBadRequest() throws Exception {
+        // given
+        String amount = "100";
+        String notExistingUserId = "notExistingUserId";
+        when(userService.getUserByUserId(notExistingUserId)).thenReturn(Optional.empty());
+
+        // when & then
+        mockMvc.perform(get("/bank/loan").param("userId", notExistingUserId).param("amount", amount))
+                .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    public void getLoanWithExistingUserWillReturnOk() throws Exception {
+        // given
+        String amount = "100";
+        String existingUserId = "existingUserId";
+        User user = mock(User.class);
+
+        when(userService.getUserByUserId(existingUserId)).thenReturn(Optional.of(user));
+        doNothing().when(loanCashService).save(any());
+
+        // when & then
+        mockMvc.perform(get("/bank/loan").param("userId", existingUserId).param("amount", amount))
+                .andExpect(status().isOk());
 
     }
 

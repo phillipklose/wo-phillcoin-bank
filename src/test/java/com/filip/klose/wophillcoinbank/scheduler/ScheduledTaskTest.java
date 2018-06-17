@@ -12,11 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.filip.klose.wophillcoinbank.builder.UserBuilder;
 import com.filip.klose.wophillcoinbank.entity.User;
-import com.filip.klose.wophillcoinbank.service.UserService;
+import com.filip.klose.wophillcoinbank.service.*;
 
 @RunWith(SpringRunner.class)
 public class ScheduledTaskTest {
@@ -35,6 +36,21 @@ public class ScheduledTaskTest {
 
     @MockBean
     private UserService userService;
+
+    @MockBean
+    private SimpleMailMessage template;
+
+    @MockBean
+    private EmailService emailService;
+
+    @MockBean
+    private CyclicTransferService cyclicTransferService;
+
+    @MockBean
+    private BankService bankService;
+
+    @MockBean
+    private LoanCashService loanCashService;
 
     private User user1, user2;
     private int startSaldoOfUser1 = 0;
