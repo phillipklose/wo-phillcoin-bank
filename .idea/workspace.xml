@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62c652ff-081a-4d0a-80af-56688b6b776c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/LoanCashServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/LoanCashMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/LoanCashDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/RaportDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -51,53 +46,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BankController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/BankController.java">
+      <file leaf-file-name="RaportController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
+            <state relative-caret-position="74">
+              <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoanCashMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/LoanCashMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RaportDto.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/RaportDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="79" column="7" lean-forward="true" selection-start-line="73" selection-start-column="15" selection-end-line="79" selection-end-column="7" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#672#673#0" expanded="true" />
+                <element signature="e#708#709#0" expanded="true" />
+                <element signature="e#740#741#0" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
+                <element signature="e#810#811#0" expanded="true" />
+                <element signature="e#844#845#0" expanded="true" />
+                <element signature="e#880#881#0" expanded="true" />
+                <element signature="e#912#913#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#1004#1005#0" expanded="true" />
+                <element signature="e#1039#1040#0" expanded="true" />
+                <element signature="e#1070#1071#0" expanded="true" />
+                <element signature="e#1118#1119#0" expanded="true" />
+                <element signature="e#1158#1159#0" expanded="true" />
+                <element signature="e#1190#1191#0" expanded="true" />
+                <element signature="e#1218#1219#0" expanded="true" />
+                <element signature="e#1260#1261#0" expanded="true" />
+                <element signature="e#1294#1295#0" expanded="true" />
+                <element signature="e#1323#1324#0" expanded="true" />
+                <element signature="e#1351#1352#0" expanded="true" />
+                <element signature="e#1390#1391#0" expanded="true" />
+                <element signature="e#1424#1425#0" expanded="true" />
+                <element signature="e#1471#1472#0" expanded="true" />
+                <element signature="e#1499#1500#0" expanded="true" />
+                <element signature="e#1548#1549#0" expanded="true" />
+                <element signature="e#1582#1583#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="UserDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/UserDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoanCashService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankServiceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java">
+      <file leaf-file-name="LoanCashRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScheduledTaskTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoanCashTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
+            <state relative-caret-position="85">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -105,51 +142,47 @@
       <file leaf-file-name="LoanCash.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+            <state relative-caret-position="68">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScheduledTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java">
+      <file leaf-file-name="SaldoDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/SaldoDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="42" selection-end-column="38" />
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankControllerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/BankControllerTest.java">
+      <file leaf-file-name="LoanCashDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/LoanCashDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2533">
-              <caret line="183" column="44" selection-start-line="183" selection-start-column="44" selection-end-line="183" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/TransactionService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="34">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
               <folding>
-                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#234#235#0" expanded="true" />
+                <element signature="e#259#260#0" expanded="true" />
+                <element signature="e#295#296#0" expanded="true" />
+                <element signature="e#323#324#0" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
+                <element signature="e#429#430#0" expanded="true" />
+                <element signature="e#465#466#0" expanded="true" />
+                <element signature="e#495#496#0" expanded="true" />
+                <element signature="e#524#525#0" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#601#602#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
+                <element signature="e#731#732#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#844#845#0" expanded="true" />
                 <element signature="e#889#890#0" expanded="true" />
-                <element signature="e#928#929#0" expanded="true" />
-                <element signature="e#975#976#0" expanded="true" />
-                <element signature="e#1014#1015#0" expanded="true" />
-                <element signature="e#1062#1063#0" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,8 +194,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -189,10 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/UserServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/ConfigurationServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/UserMapperTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/ConfigurationMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
@@ -205,7 +234,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/InfoControllerTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/UserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/RaportControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/InfoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/runtime/exception/GetCashException.java" />
@@ -229,8 +257,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/CyclicTransfer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/CyclicTransferRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/CyclicTransferService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/BankService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java" />
@@ -240,6 +266,13 @@
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/service/BankServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/Raport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/LoanCashMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/LoanCashDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/RaportDto.java" />
       </list>
     </option>
   </component>
@@ -500,11 +533,11 @@
       <recent name="com.filip.klose.wophillcoinbank.entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.filip.klose.wophillcoinbank.mapper" />
+      <recent name="com.filip.klose.wophillcoinbank.model" />
       <recent name="com.filip.klose.wophillcoinbank.service" />
       <recent name="com.filip.klose.wophillcoinbank.repository" />
       <recent name="com.filip.klose.wophillcoinbank.entity" />
-      <recent name="com.filip.klose.wophillcoinbank.model" />
-      <recent name="com.filip.klose.wophillcoinbank.runtime.exception" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -569,7 +602,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in wo-phillcoin-bank">
+  <component name="RunManager" selected="Spring Boot.WoPhillcoinBankApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -765,7 +798,7 @@
       <workItem from="1525363837194" duration="1394000" />
       <workItem from="1525461922379" duration="20719000" />
       <workItem from="1527318003189" duration="650000" />
-      <workItem from="1529095105800" duration="25308000" />
+      <workItem from="1529095105800" duration="28304000" />
     </task>
     <servers />
   </component>
@@ -802,7 +835,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86633000" />
+    <option name="totallyTimeSpent" value="89629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="105" width="1936" height="1096" extended-state="6" />
@@ -857,12 +890,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java</url>
-          <line>38</line>
+          <line>52</line>
           <properties />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -910,65 +943,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/CashOutOfBank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#290#291#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/CashOutOfBankDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#154#155#0" expanded="true" />
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#215#216#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/ConfigurationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/ConfigurationControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="46" column="74" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/InfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/UserMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1044,20 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/UserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="36" column="26" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1140,16 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/RaportControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/mapper/CashOutOfBankMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1185,13 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/EmailService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1221,19 +1164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="19" selection-start-line="19" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="43" />
-          <folding>
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1307,13 +1237,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="42" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTaskTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1321,17 +1244,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
+        <state relative-caret-position="255">
+          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/entity/LoanCashTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/filip/klose/wophillcoinbank/controller/RaportControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
+        <state relative-caret-position="465">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/scheduler/ScheduledTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+          <folding>
+            <element signature="e#2153#2154#0" expanded="true" />
+            <element signature="e#2190#2191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/SaldoDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="165" column="11" selection-start-line="165" selection-start-column="11" selection-end-line="165" selection-end-column="11" />
+          <folding>
+            <element signature="e#6326#6327#0" expanded="true" />
+            <element signature="e#6394#6395#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/entity/LoanCash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/mapper/LoanCashMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/repository/LoanCashRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/service/LoanCashService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding>
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/LoanCashDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding>
+            <element signature="e#234#235#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/controller/RaportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/filip/klose/wophillcoinbank/model/RaportDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="79" column="7" lean-forward="true" selection-start-line="73" selection-start-column="15" selection-end-line="79" selection-end-column="7" />
+          <folding>
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#810#811#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1118#1119#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
+            <element signature="e#1390#1391#0" expanded="true" />
+            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1471#1472#0" expanded="true" />
+            <element signature="e#1499#1500#0" expanded="true" />
+            <element signature="e#1548#1549#0" expanded="true" />
+            <element signature="e#1582#1583#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

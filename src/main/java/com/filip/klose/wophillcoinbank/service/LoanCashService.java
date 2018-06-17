@@ -22,4 +22,8 @@ public class LoanCashService {
         return loanCashRepository.findAll();
     }
 
+    public List<LoanCash> getByUserId(String userId) {
+        return loanCashRepository.findAllByUserId(userId);
+    }
+
 }
